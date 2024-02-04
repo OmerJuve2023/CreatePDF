@@ -1,17 +1,16 @@
-package pdf;
+package dto;
 
 import com.itextpdf.kernel.color.Color;
-import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
-import estilos.estilos;
+import util.Styles;
 
 import java.text.DecimalFormat;
 
-public class tabla {
-    estilos cell = new estilos();
-    public Table bodytable(double[]x,double[]y){
+public class Table {
+    Styles cell = new Styles();
+    public com.itextpdf.layout.element.Table bodytable(double[]x, double[]y){
         float [] columnWidth={100f,140f,150f};
-        Table table=new Table(columnWidth);
+        com.itextpdf.layout.element.Table table=new com.itextpdf.layout.element.Table(columnWidth);
         table.addCell(cell.encabezado("Iteraciones", Color.BLACK, Color.WHITE, 15f));
         table.addCell(cell.encabezado("valores de x", Color.BLACK, Color.WHITE, 15f));
         table.addCell(cell.encabezado("valores de y", Color.BLACK, Color.WHITE, 15f));

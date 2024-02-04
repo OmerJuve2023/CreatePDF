@@ -1,4 +1,4 @@
-package methods;
+package service;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -11,7 +11,8 @@ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import pdf.archivo;
+import dto.FIle;
+
 import javax.swing.*;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -19,15 +20,16 @@ import java.awt.EventQueue;
 import java.io.File;
 import java.io.IOException;
 
-public class createPNG extends JFrame {
-     archivo arch=new archivo();
-    public void init( double[] x, double[] y) {
-        EventQueue.invokeLater(() -> initUI( x, y));
+public class CreatePNG extends JFrame {
+    FIle arch = new FIle();
+
+    public void init(double[] x, double[] y) {
+        EventQueue.invokeLater(() -> initUI(x, y));
     }
 
-    private void initUI( double[] x, double[] y) {
+    private void initUI(double[] x, double[] y) {
 
-        XYDataset dataset = createDataset( x, y);
+        XYDataset dataset = createDataset(x, y);
         JFreeChart chart = createChart(dataset);
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -38,12 +40,12 @@ public class createPNG extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        String namepng = arch.save()+"\\imagen.png" ;
+        String namepng = arch.save() + "\\imagen.png";
         System.out.println(namepng);
         try {
             ChartUtils.saveChartAsPNG(new File(namepng), chart, 450, 350);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error al guardar la imagen:\n" + e.getMessage());
         }
     }
 

@@ -1,11 +1,11 @@
-package estilos;
+package util;
 
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.color.DeviceRgb;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.property.TextAlignment;
 
-public class estilos {
+public class Styles {
     public Cell encabezado(String txt, Color Background, Color fontColor, float size) {
 
         Cell cell = new Cell();
