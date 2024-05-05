@@ -15,4 +15,4 @@ jobs:
     - name: Publish package
       run: mvn --batch-mode deploy
       env :
-        GITHUS_TOKEN: ${{secrets.JAVA_TOKEN}}
+        GITHUS_TOKEN: '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'
